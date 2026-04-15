@@ -136,6 +136,34 @@ Claude Code:
 - ❌ 因为一次讨论而改变（用决策日志记录）
 - ❌ 为了某个单独的 PRD 而改变（用决策日志）
 
+## 资产库管理
+
+### assets-index.md
+
+轻量级产品截图和页面结构索引。记录各模块的 UI 现状、功能对标、竞品参考。
+
+**更新方式**：
+
+1. **对话驱动（实时更新）** — 用户在对话中提供新截图或 UI 描述时
+   ```
+   用户："这是 Address Screening 列表页，新增批量导出"
+   Claude Code: 立即更新 assets-index.md
+   ```
+
+2. **自动扫描（定期维护）** — 用户输入 `/scan-assets` 命令时
+   ```
+   用户：/scan-assets
+   Claude Code:
+   1. 扫描 approved-prds/ 和 competitors/ 中的所有内容
+   2. 提取图片链接、UI 描述、功能对标
+   3. 自动更新 assets-index.md
+   4. 生成扫描报告到 11_candidate/scan-report.md
+   ```
+
+**实现**：
+- 见 `scripts/scan-assets.py`
+- 推荐频率：每周或新增 3+ 个截图时运行一次
+
 ---
 
-**最后更新**: 2026-04-14
+**最后更新**: 2026-04-15

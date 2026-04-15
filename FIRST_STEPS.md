@@ -3,7 +3,7 @@
 你的 PM Copilot 知识库已经创建好了。现在是：
 
 ```
-/tmp/aml-cft-pm-copilot/
+/Users/eureka266/aml-cft-pm-copilot/
 ```
 
 ## Step 1: 上传到 GitHub (5 分钟)
@@ -41,18 +41,43 @@ git clone https://github.com/YOUR-USERNAME/aml-cft-pm-copilot.git
 
 这 5 个文件是你的"权威源"。建议花 30 分钟把钉钉里的信息整理到这里。
 
-## Step 3: 开始用 (现在就行)
+## Step 3: 管理截图和资产库 (可选但推荐)
+
+你已经填充了一些 PRD 和竞品分析。现在可以用 `/scan-assets` 命令自动更新资产索引：
+
+```
+你：在 Claude Code 中说 /scan-assets
+
+Claude Code 会：
+1. 扫描 approved-prds/ 和 competitors/ 中的所有内容
+2. 提取图片链接、UI 描述、功能对标
+3. 自动更新 assets-index.md
+4. 生成扫描报告
+
+推荐频率：每周或新增 3+ 个截图时运行一次
+```
+
+**原理**：
+- **对话驱动更新**：你说"这是地址列表页"，我立即记录
+- **自动扫描更新**：用 `/scan-assets` 定期扫描新增内容，无需手动维护
+
+详见 `USAGE.md` 的"资产库管理"章节。
+
+---
+
+## Step 4: 开始写 PRD (现在就行)
 
 下一次你要写 PRD 时：
 
 ```
-你: "帮我写一个关于 [功能名] 的 PRD，这是我的知识库：https://github.com/YOUR-USERNAME/aml-cft-pm-copilot"
+你: "帮我写一个关于 [功能名] 的 PRD"
 
 Claude Code:
 1. 读你的 facts + workflows
 2. 查看历史决策（如果有的话）
-3. 讨论新功能
-4. 自动生成 PRD + 决策日志
+3. 读 assets-index.md 中的相关截图和竞品对标
+4. 讨论新功能
+5. 自动生成 PRD + 决策日志
 
 你: 审核决策日志，眼睛过一遍，确认没问题
 
